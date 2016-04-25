@@ -24,15 +24,26 @@ export default class App extends Component {
  
   render() {
     return (
-      <div className="container">
+      <div>
         <header>
-          <h1 class="title">#OldWorldNewWords</h1>
+          <h2 className="title">#OldWorldNewWords</h2>
         </header>
- 
-        <div>
-          {this.renderTrends()}
+
+        <div className="container">  
+          <div>
+            {this.renderTrends()}
+          </div>
         </div>
       </div>
     );
+  }
+
+  componentDidMount() {
+    console.log("component mounted!")
+    $("h2.title")
+      .css('opacity', 1).lettering( 'words' )
+      .children( "span" ).lettering()
+      .children( "span" ).lettering(); 
+
   }
 }
