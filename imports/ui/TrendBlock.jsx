@@ -2,11 +2,21 @@ import React, { Component, PropTypes } from 'react';
  
 // Task component - represents a single todo item
 export default class TrendBlock extends Component {
+
+  generateParagraph() {
+
+    var wordsandshit = Session.get("returnedTrends").join(" ");
+    return (
+      <p>{wordsandshit}</p>
+    )
+  };
+
   render() {
     return (
-      <p>{this.props.paragraph.text}</p>
+      <div>{this.generateParagraph()}</div>
     );
   }
+
 }
  
 TrendBlock.propTypes = {

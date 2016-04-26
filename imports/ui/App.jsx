@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
  
 import TrendBlock from './TrendBlock.jsx';
-
-let testParagraph = "This is text, this is this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text. This is text, this is this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text. This is text, this is this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text, this is text."
  
 // App component - represents the whole app
 export default class App extends Component {
-
-  // getInitialState() {
-  //   return { 
-  //     returnedTrends: "I am here to fuck up your day" 
-  //   };
-  // }
 
   constructor(props) {
     super(props);
@@ -22,10 +14,10 @@ export default class App extends Component {
 
   getTrendBlocks() {
     return [
-      { _id: 1, text: testParagraph },
-      { _id: 2, text: testParagraph },
-      { _id: 3, text: testParagraph },
-      { _id: 4, text: testParagraph },
+      { _id: 1 },
+      { _id: 2 },
+      { _id: 3 },
+      { _id: 4 },
     ];
   }
  
