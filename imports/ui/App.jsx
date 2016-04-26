@@ -39,6 +39,13 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+
+    Meteor.call("getTwitterTrends", function(error, res) {
+          console.log("test test get trends?")
+          console.log(res);
+          console.log("boooooo")
+        });
+
     console.log("component mounted!")
     $("h2.title")
       .css('opacity', 1).lettering( 'words' )
