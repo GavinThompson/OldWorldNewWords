@@ -7,19 +7,49 @@ let testParagraph = "This is text, this is this is text, this is text, this is t
 // App component - represents the whole app
 export default class App extends Component {
 
+  // getInitialState() {
+  //   return { 
+  //     returnedTrends: "I am here to fuck up your day" 
+  //   };
+  // }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      returnedTrends: false
+    };
+  }
 
   getTrendBlocks() {
     return [
       { _id: 1, text: testParagraph },
       { _id: 2, text: testParagraph },
       { _id: 3, text: testParagraph },
+      { _id: 4, text: testParagraph },
     ];
   }
  
   renderTrends() {
-    return this.getTrendBlocks().map((block) => (
-      <TrendBlock key={block._id} paragraph={block} />
-    ));
+
+    if ( !this.state.returnedTrends ) {
+      
+      return (
+        <div>
+          <p>LOADING....</p>
+        </div>
+      )
+
+    }else{
+      
+      return this.getTrendBlocks().map((block) => (
+        <TrendBlock key={block._id} paragraph={block} />
+      ));
+
+    }
+
+
+    //   
+
   }
  
   render() {
@@ -40,17 +70,31 @@ export default class App extends Component {
 
   componentDidMount() {
 
-    Meteor.call("getTwitterTrends", function(error, res) {
-          console.log("test test get trends?")
-          console.log(res);
-          console.log("boooooo")
-        });
+    let thisApp = this
 
-    console.log("component mounted!")
+    Meteor.call("getTwitterTrends", function(error, results) {
+
+      if (results) {
+
+        console.log(results);
+
+        Session.set("returnedTrends", results);
+        thisApp.setState({returnedTrends: true});
+
+      }else if (error) {
+        console.log("error :(");
+        console.log(error)
+      }else{
+        console.log("uh broken")
+      }
+
+    });
+
+    
     $("h2.title")
       .css('opacity', 1).lettering( 'words' )
       .children( "span" ).lettering()
       .children( "span" ).lettering(); 
 
-  }
+    }
 }
