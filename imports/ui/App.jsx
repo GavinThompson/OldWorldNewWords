@@ -54,22 +54,6 @@ export default class App extends Component {
   }
 
 
-  // appendTrendsToTitle() {
-
-  //   let trends = Session.get("returnedTrends")
-
-  //   for(var i = 0; i < trends.length; i++){
-  //     var trend = trends[i];
-  //     $("header").append("<h2 class='title'>"+trend+"</h2>");
-  //   }
-
-  //   $("h2.title")
-  //     .css('opacity', 1).lettering( 'words' )
-  //     .children( "span" ).lettering()
-  //     .children( "span" ).lettering(); 
-
-  // }
-
   
   componentDidMount() {
 
@@ -83,7 +67,6 @@ export default class App extends Component {
 
         Session.set("returnedTrends", results);
 
-        // thisApp.appendTrendsToTitle();
         thisApp.setState({returnedTrends: true});
 
       }else if (error) {
