@@ -22,9 +22,7 @@ export default class App extends Component {
   }
  
   renderTrends() {
-
-    if ( !this.state.returnedTrends ) {
-      
+    if ( !this.state.returnedTrends ) {  
       return (
         <div>
           <p>LOADING....</p>
@@ -32,16 +30,10 @@ export default class App extends Component {
       )
 
     }else{
-      
       return this.getTrendBlocks().map((block) => (
         <TrendBlock key={block._id} paragraph={block} />
       ));
-
     }
-
-
-    //   
-
   }
  
   render() {
@@ -49,6 +41,7 @@ export default class App extends Component {
       <div>
         <header>
           <h2 className="title">#OldWorldNewWords</h2>
+
         </header>
 
         <div className="container">  
@@ -60,6 +53,24 @@ export default class App extends Component {
     );
   }
 
+
+  // appendTrendsToTitle() {
+
+  //   let trends = Session.get("returnedTrends")
+
+  //   for(var i = 0; i < trends.length; i++){
+  //     var trend = trends[i];
+  //     $("header").append("<h2 class='title'>"+trend+"</h2>");
+  //   }
+
+  //   $("h2.title")
+  //     .css('opacity', 1).lettering( 'words' )
+  //     .children( "span" ).lettering()
+  //     .children( "span" ).lettering(); 
+
+  // }
+
+  
   componentDidMount() {
 
     let thisApp = this
@@ -71,6 +82,8 @@ export default class App extends Component {
         console.log(results);
 
         Session.set("returnedTrends", results);
+
+        // thisApp.appendTrendsToTitle();
         thisApp.setState({returnedTrends: true});
 
       }else if (error) {
@@ -82,11 +95,10 @@ export default class App extends Component {
 
     });
 
-    
     $("h2.title")
       .css('opacity', 1).lettering( 'words' )
       .children( "span" ).lettering()
       .children( "span" ).lettering(); 
+  }
 
-    }
 }

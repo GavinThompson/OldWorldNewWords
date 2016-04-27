@@ -113,8 +113,7 @@ export default class TrendBlock extends Component {
 
   _wordConvertNumbers( word ) {
 
-  	var numbers = word.match(/[\d]+/g)
-  	
+  	var numbers = word.match(/[\d]+/g)  	
   	if (numbers) { 
 	  	for(var i = 0; i < numbers.length; i++){
 	  		var number = numbers[i];
