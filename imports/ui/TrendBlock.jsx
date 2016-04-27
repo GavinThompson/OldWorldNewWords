@@ -90,7 +90,7 @@ export default class TrendBlock extends Component {
   _wordStrip( word ) {
   	word = this._wordStripPunctuation( word )
   	word = this._wordStripUnderscores( word )
-  	// word = this._wordStripNumbers( word )
+  	word = this._wordConvertNumbers( word )
 
   	return(
   	 word
@@ -111,8 +111,20 @@ export default class TrendBlock extends Component {
   	)
   }
 
-  _wordStripNumbers( word ) {
-  	word = word.replace(/[\d]/g, '')
+  _wordConvertNumbers( word ) {
+
+  	var numbers = word.match(/[\d]+/g)
+  	
+  	if (numbers) { 
+	  	for(var i = 0; i < numbers.length; i++){
+	  		var number = numbers[i];
+	  		var romanNumeral = roman_converter( number );
+	  		romanNumeral = " "+romanNumeral+" " // just in case number in the middle of the word
+	  		word = word.replace(number, romanNumeral);
+	  	}
+	  	word = word.trim();
+	}
+  	
   	return(
   	 word
   	)
