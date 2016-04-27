@@ -17,7 +17,7 @@ export default class TrendBlock extends Component {
     completedParagraph = this._stringifyNewParagraph(newParagraph)
 
     return (
-      <p>{completedParagraph}</p>
+      <p className="trends">{completedParagraph}</p>
     )
 
   };
@@ -26,6 +26,11 @@ export default class TrendBlock extends Component {
     return (
       <div>{this.generateParagraph()}</div>
     );
+  }
+
+  componentDidMount() {
+  	$(".trends").textillate({ in: { effect: 'fadeInUp', shuffle: true, delayScale: 0.5, delay: 25 } })
+
   }
 
 
@@ -237,6 +242,7 @@ export default class TrendBlock extends Component {
       ["a", "ae", "aram", "as", "is", "us", "e", "orum", "i", "o", "ius", "ii", "ium", "ios", "iorum", "iis", "ia", "os", "om", "es", "em", "ibus", "im", "uum", "erum", "ebus", "tri", "eorum", "eis", "ius", "ix", "ii", "atrix", "ator"]
     )
   };
+
 
 }
  

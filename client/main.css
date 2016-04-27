@@ -43,6 +43,9 @@ h1 {
   margin-right: 1em;
 }
 
+p.trends{
+  /**/
+}
 
 
 
@@ -182,7 +185,7 @@ h2.title:nth-child(7) > span > span > span {
   }
   100% {
     text-shadow: 0 0 10px #fff;
-    opacity: 0;
+    /*opacity: 0;*/
     -webkit-transform: translateZ(130px);
     pointer-events: none;
   }
@@ -208,7 +211,7 @@ h2.title:nth-child(7) > span > span > span {
   }
   100% {
     text-shadow: 0 0 10px #fff;
-    opacity: 0;
+    /*opacity: 0;*/
     -moz-transform: translateZ(130px);
     pointer-events: none;
   }
@@ -234,7 +237,7 @@ h2.title:nth-child(7) > span > span > span {
   }
   100% {
     text-shadow: 0 0 10px #fff;
-    opacity: 0;
+    /*opacity: 0;*/
     transform: translateZ(130px);
     pointer-events: none;
   }
